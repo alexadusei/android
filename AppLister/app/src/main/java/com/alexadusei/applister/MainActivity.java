@@ -89,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 sizePrefixData = " GB";
             }
 
-            Log.d(TAG, "Application Label: " + appNameData + "... Version Name: " + appVersionData +
-                    "... App Memory: " + appSizeData + "... App Icon ID: " + appIconData);
-
             appBundle.add(new App(appNameData, appVersionData, appSizeData, sizePrefixData, appIconData));
         }
     }
