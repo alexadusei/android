@@ -21,7 +21,7 @@
             android:orientation="vertical"
             android:padding="@dimen/card_padding">
 
-            <!-- A photo on the left. We'll just use the launcher icon -->
+            <!-- App icon. Default launch icon as placeholder -->
             <ImageView
                 android:id="@+id/app_icon"
                 android:layout_width="@dimen/icon_size"
@@ -34,28 +34,27 @@
                 android:src="@mipmap/ic_launcher" />
 
 
-            <!-- The app's name, on top -->
+            <!-- String for app's package name -->
             <TextView
                 android:id="@+id/app_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/app_icon"
-                android:layout_toRightOf="@+id/app_icon"
-                android:layout_alignParentTop="true"
                 android:textSize="25dp"
                 android:text="Lorem Ipsum "
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/app_icon"
+                android:layout_toEndOf="@+id/app_icon" />
 
             </RelativeLayout>
 
-        <!-- Bottom panel with fake share buttons-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="@dimen/card_padding">
 
-            <!-- The age, in the bottom -->
+            <!-- App's version code-->
             <TextView
                 android:id="@+id/app_version"
                 android:layout_width="wrap_content"
@@ -67,6 +66,7 @@
                 android:text="Version: 13.3.7"
                 tools:ignore="HardcodedText"/>
 
+            <!-- App's file size-->
             <TextView
                 android:id="@+id/app_size"
                 android:layout_width="wrap_content"
