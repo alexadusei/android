@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/inter_card_half_spacing"
+    android:layout_marginBottom="@dimen/inter_card_half_spacing" >
+
+    <!-- Content inside the card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/card_padding"
+        tools:background="#22000000" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <!-- A photo on the left. We'll just use the launcher icon -->
+            <ImageView
+                android:id="@+id/app_icon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:src="@mipmap/ic_launcher" />
+
+
+            <!-- The app's name, on top -->
+            <TextView
+                android:id="@+id/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/app_icon"
+                android:layout_toRightOf="@+id/app_icon"
+                android:layout_alignParentTop="true"
+                android:textSize="25dp"
+                android:text="Lorem Ipsum "
+                tools:ignore="HardcodedText" />
+
+            </RelativeLayout>
+
+        <!-- Bottom panel with fake share buttons-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/card_padding">
+
+            <!-- The age, in the bottom -->
+            <TextView
+                android:id="@+id/app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:singleLine="true"
+                android:textSize="16sp"
+                android:text="Version: 13.3.7"
+                tools:ignore="HardcodedText"/>
+
+            <TextView
+                android:id="@+id/app_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:singleLine="true"
+                android:textSize="16sp"
+                android:text="Size: 67.0 MB"
+                tools:ignore="HardcodedText"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
