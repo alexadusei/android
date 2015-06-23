@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("mysql110.000webhost.com", "username", "password", "db_name");
+$con = mysqli_connect("localhost", "username", "password", "db_name");
 
 if (mysqli_connect_errno($con)){
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
