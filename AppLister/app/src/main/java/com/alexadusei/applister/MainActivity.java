@@ -6,18 +6,13 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.alexadusei.applister.model.App;
+import com.alexadusei.applister.stylelayout.MarginDecoration;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -34,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rv = (RecyclerView) findViewById(R.id.app_list);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+
+        rv.addItemDecoration(new MarginDecoration(this));
+        rv.setHasFixedSize(true);
+        rv.setLayoutManager(new GridLayoutManager(this, 4));
 
         initializeData();
         initializeAdapter();
@@ -42,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
     // get list of all installed apps.
     private void initializeData(){
-        appBundle = new ArrayList<App>();
+        appBundle = new ArrayList<>();
         String appNameData;
         String appVersionData;
-        double appSizeData = 0;
+        double appSizeData;
         String sizePrefixData;
         Drawable appIconData;
 
@@ -55,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < packs.size(); i++){
             PackageInfo p = packs.get(i);
+            ApplicationInfo applicationInfo = p.applicationInfo;
 
-            if (p.versionName == null) {
+            // Filter out system apps and allow only downloadble apps to be shown
+            if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1) {
                 continue;
             }
 
@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 appSizeData = appGB;
                 sizePrefixData = " GB";
             }
+
+//            Log.d(TAG, "Application Label: " + appNameData + "... Version Name: " + appVersionData +
+//                    "... App Memory: " + appSizeData + "... App Icon ID: " + appIconData);
 
             appBundle.add(new App(appNameData, appVersionData, appSizeData, sizePrefixData, appIconData));
         }

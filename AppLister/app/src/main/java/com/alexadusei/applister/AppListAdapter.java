@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.alexadusei.applister.model.App;
-
 import java.util.List;
 
 public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppViewHolder>{
@@ -23,7 +21,7 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppViewH
         public AppViewHolder(View itemView){
             super(itemView);
             appName = (TextView) itemView.findViewById(R.id.app_name);
-            appVersion = (TextView) itemView.findViewById(R.id.app_version);
+            //appVersion = (TextView) itemView.findViewById(R.id.app_version);
             appSize = (TextView) itemView.findViewById(R.id.app_size);
             appIcon = (ImageView) itemView.findViewById(R.id.app_icon);
         }
@@ -44,8 +42,8 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppViewH
     @Override
     public void onBindViewHolder(AppViewHolder appViewHolder, int i) {
         appViewHolder.appName.setText(apps.get(i).getAppInfo()[0]);
-        appViewHolder.appVersion.setText("Version: " + apps.get(i).getAppInfo()[1]);
-        appViewHolder.appSize.setText("Size: " + apps.get(i).getAppInfo()[2] + apps.get(i).getAppInfo()[3]);
+        //appViewHolder.appVersion.setText("Version: " + apps.get(i).getAppInfo()[1]);
+        appViewHolder.appSize.setText(apps.get(i).getAppInfo()[2] + apps.get(i).getAppInfo()[3]);
         appViewHolder.appIcon.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         appViewHolder.appIcon.setImageDrawable(apps.get(i).getAppIcon());
     }
